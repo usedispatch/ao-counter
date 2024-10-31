@@ -72,3 +72,31 @@ export async function getCounter() {
     console.error("Error getting counter", error);
   }
 }
+
+export async function connectArConnectWallet() {
+  try {
+    // connect to the ArConnect browser extension
+    await (globalThis as any).arweaveWallet.connect(
+      // request permissions
+      ["ACCESS_ADDRESS", "SIGN_TRANSACTION"]
+    );
+  } catch (error) {
+    alert("You should connect to ArConnect browser extension.");
+    console.error(error);
+    return false;
+  }
+
+  return true;
+}
+
+export async function getWalletAddress() {
+  let address;
+  try {
+    address = await (globalThis as any).arweaveWallet.getActiveAddress();
+  } catch (error) {
+    console.error(error);
+    return localStorage.getItem("owner");
+  }
+
+  return address;
+}
