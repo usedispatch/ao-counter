@@ -1,0 +1,9 @@
+- name: counter
+  file: process/build/output.lua
+  scheduler: _GQ33BkPtZrqxA84vM8Zk-N2aO0toNNu_C-l-rawrBA
+  module: bkjb55i07GUCUSWROtKK4HU1mBS_X0TyH3M5jMV6aPg
+  tags:
+    - name: Name
+      value: counter
+    - name: Powered-By
+      value: aox

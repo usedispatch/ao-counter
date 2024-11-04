@@ -30,7 +30,7 @@ function App() {
       }
     }
     CheckIfConnected();
-  }, []);
+  }, [(globalThis as any).arweaveWallet]);
 
   useEffect(() => {
     async function getCounterInfo() {
@@ -54,16 +54,24 @@ function App() {
     }
   };
 
+  const connectWallet = async () => {
+    await connectArConnectWallet();
+    const wallet = await getWalletAddress();
+    setWallet(wallet);
+  };
+
   return (
     <>
       <h1>AO Starter Code</h1>
       {isLoading || isFetching ? <p>Loading...</p> : <p>Counter: {counter}</p>}
       <div className="card">
-        {wallet ? (
-          <p>Connected to {wallet}</p>
-        ) : (
-          <button onClick={connectArConnectWallet}>Connect to ArConnect</button>
-        )}
+        <div style={{ marginBottom: 12 }}>
+          {wallet ? (
+            <p>Connected to {wallet}</p>
+          ) : (
+            <button onClick={connectWallet}>Connect to ArConnect</button>
+          )}
+        </div>
         <button
           style={{ marginRight: 12 }}
           onClick={() => checkWalletConnection(incrementCounter)}
