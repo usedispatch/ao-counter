@@ -12,7 +12,9 @@
     "process:deploy": "aoform apply -f processes.yaml",
     "process:build": "lua process/scripts/build.lua",
     "frontend:dev": "cd app && yarn dev",
-    "frontend:build": "cd app && yarn build"
+    "frontend:build": "cd app && yarn build",
+    "process:clean": "rm -rf process/build",
+    "process:test": "cd test && yarn test"
   },
   "devDependencies": {
     "aoform": "^1.0.5"
