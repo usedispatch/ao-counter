@@ -10,7 +10,9 @@
     "test": "FORMAT=wasm32-unknown-emscripten2 WASM=./AOS-SQLITE.wasm node --experimental-wasm-memory64 -r ts-node/register test/*.test.ts",
     "build": "lua process/scripts/build.lua",
     "test:sqlite": "FORMAT=wasm32-unknown-emscripten2 WASM=./AOS-SQLITE.wasm ts-node test/**/*.test.ts",
-    "process:deploy": "aoform apply -f processes.yaml"
+    "process:deploy": "aoform apply -f processes.yaml",
+    "frontend:dev": "cd app && yarn dev",
+    "frontend:build": "cd app && yarn build"
   },
   "devDependencies": {
     "aoform": "^1.0.5"
